@@ -9,21 +9,21 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate({ Reservations, Reviews, Posts }) {
       // define association here
-      this.hasMany(Reservations, {
-        foreignKey: 'User_id',
-        onDelete: 'cascade',
-        hooks: true,
-      });
-      this.hasMany(Reviews, {
-        foreignKey: 'User_id',
-        onDelete: 'cascade',
-        hooks: true,
-      });
-      this.hasMany(Posts, {
-        foreignKey: 'User_id',
-        onDelete: 'cascade',
-        hooks: true,
-      });
+      // this.hasMany(Reservations, {
+      //   foreignKey: 'User_id',
+      //   onDelete: 'cascade',
+      //   hooks: true,
+      // });
+      // this.hasMany(Reviews, {
+      //   foreignKey: 'User_id',
+      //   onDelete: 'cascade',
+      //   hooks: true,
+      // });
+      // this.hasMany(Posts, {
+      //   foreignKey: 'User_id',
+      //   onDelete: 'cascade',
+      //   hooks: true,
+      // });
     }
   }
   Users.init(
@@ -47,6 +47,10 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         type: DataTypes.STRING,
         unique: true,
+      },
+      pet_name: {
+        allowNull: false,
+        type: DataTypes.STRING,
       },
       createdAt: {
         allowNull: false,

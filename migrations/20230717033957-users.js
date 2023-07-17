@@ -12,7 +12,7 @@ module.exports = {
       login_id: {
         allowNull: false,
         type: Sequelize.STRING,
-        unique:true,
+        unique: true,
       },
       password: {
         allowNull: false,
@@ -21,7 +21,11 @@ module.exports = {
       nickname: {
         allowNull: false,
         type: Sequelize.STRING,
-        unique:true,
+        unique: true,
+      },
+      pet_name: {
+        allowNull: false,
+        type: Sequelize.STRING,
       },
       createdAt: {
         allowNull: false,
