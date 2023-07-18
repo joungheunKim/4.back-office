@@ -15,6 +15,7 @@ router.route('/reviews/:sitter_id').get(async (req, res) => {
         'sitter_id',
         'nickname',
         'content',
+        'rate',
         'createdAt',
       ],
       order: [['createdAt', 'DESC']],
@@ -44,11 +45,18 @@ router.route('/reviews/:sitter_id').post(async (req, res) => {
         .status(411)
         .send({ errormessage: '조건에 맞는 시터가 없습니다.' });
     } else {
+      const rateRegex = /[1-5]/g;
+      if (!rateRegex.test(rate)) {
+        return res
+          .status(412)
+          .json({ errorMessage: '평점은 1점에서 5점까지 부여할 수 있습니다.' });
+      }
       await Reviews.create({
         Nickname: nickname,
         User_id: user_id,
         Sitter_id: sitter_id,
         content,
+        rate,
         review_id,
       });
       return res.status(201).json({ message: '리뷰를 생성했습니다.' });
@@ -65,7 +73,7 @@ router.route('reviews/:sitter_id/:review_id').put(async (req, res) => {
   try {
     const { user_id } = res.locals.user;
     const { sitter_id, review_id } = req.params;
-    const { content } = req.body;
+    const { content, rate } = req.body;
     const Review = await Reviews.findById({
       where: { review_id },
     });
@@ -81,7 +89,7 @@ router.route('reviews/:sitter_id/:review_id').put(async (req, res) => {
         .json({ errormessage: '조건에 맞는 리뷰가 없습니다.' });
     }
     await Reviews.updateOne(
-      { content },
+      { content, rate },
       { where: { [Op.and]: [{ sitter_id }, { review_id }] } }
     );
     return res.status(201).json({ message: '리뷰를 수정했습니다.' });
@@ -95,7 +103,7 @@ router.route('reviews/:sitter_id/:review_id').delete(async (req, res) => {
   try {
     const { user_id } = res.locals.user;
     const { sitter_id, review_id } = req.params;
-    const { content } = req.body;
+    const { content, rate } = req.body;
     const Review = await Reviews.findById({
       where: { review_id },
     });
@@ -111,7 +119,7 @@ router.route('reviews/:sitter_id/:review_id').delete(async (req, res) => {
         .json({ errormessage: '조건에 맞는 리뷰가 없습니다.' });
     }
     await Reviews.destroy(
-      { content },
+      { content, rate },
       { where: { [Op.and]: [{ sitter_id }, { review_id }] } }
     );
     return res.status(201).json({ message: '리뷰를 삭제했습니다.' });
