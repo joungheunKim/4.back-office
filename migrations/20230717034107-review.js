@@ -35,6 +35,9 @@ module.exports = {
           key: 'nickname',
         },
       },
+      rate: {
+        type: Sequelize.INTEGER,
+      },
       content: {
         allowNull: false,
         type: Sequelize.STRING,
