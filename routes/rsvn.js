@@ -22,7 +22,6 @@ app.post('/api/reservations', (req, res) => {
 });
 
 
-
 // 예약 수정 API
 app.put
 // 예약 확인 API
