@@ -1,7 +1,7 @@
 'use strict';
-const { Model } = require('sequelize');
+const { Model, Sequelize } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class reviews extends Model {
+  class Reviews extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -9,62 +9,61 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-
-      this.belongsTo(models.users, {
+      this.belongsTo(models.Users, {
         targetKey: 'user_id',
         foreignKey: 'User_id',
       });
+      this.belongsTo(models.Users, {
+        targetKey: 'sitter_id',
+        foreignKey: 'Sitter_id',
+      });
+      this.belongsTo(models.Users, {
+        targetKey: 'nickname',
+        foreignKey: 'Nickname',
+      });
     }
   }
-  reviews.init(
+  Reviews.init(
     {
-      post_id: {
+      user_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      nickname: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      sitter_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      content: {
+        type: DataTypes.STRING,
+      },
+      review_id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: DataTypes.INTEGER,
       },
-      User_id: {
-        allowNull: false,
+      rate: {
         type: DataTypes.INTEGER,
-        references: {
-          model: 'Users',
-          key: 'user_id',
-        },
-        onDelete: 'CASCADE',
-      },
-      Sitter_id: {
-        allowNull: false,
-        type: DataTypes.INTEGER,
-        references: {
-          model: 'Sitters',
-          key: 'sitter_id',
-        },
-        onDelete: 'CASCADE',
-      },
-      title: {
-        allowNull: false,
-        type: DataTypes.STRING,
-      },
-      comment: {
-        allowNull: false,
-        type: DataTypes.STRING,
       },
       createdAt: {
         allowNull: false,
         type: DataTypes.DATE,
-        defaultValue: DataTypes.NOW,
+        defaultValue: Sequelize.fn('now'),
       },
       updatedAt: {
         allowNull: false,
         type: DataTypes.DATE,
-        defaultValue: DataTypes.NOW,
+        defaultValue: Sequelize.fn('now'),
       },
     },
     {
       sequelize,
-      modelName: 'reviews',
+      modelName: 'Reviews',
     }
   );
-  return reviews;
+  return Reviews;
 };
