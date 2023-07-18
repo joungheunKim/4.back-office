@@ -2,7 +2,7 @@ const express = require('express');
 const { Users, Posts } = require('../models');
 const { Op } = require('sequelize');
 const router = express.Router();
-const authMiddleware = require('../middlewares/auth-middleware');
+const authMiddleware = require('../middlewares/auth');
 
 // 모집글 등록
 router.post('/posts', authMiddleware, async (req, res) => {
