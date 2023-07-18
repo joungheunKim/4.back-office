@@ -9,18 +9,18 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.belongsTo(models.Users, {
-        targetKey: 'user_id',
-        foreignKey: 'User_id',
-      });
-      this.belongsTo(models.Users, {
-        targetKey: 'sitter_id',
-        foreignKey: 'Sitter_id',
-      });
-      this.belongsTo(models.Users, {
-        targetKey: 'nickname',
-        foreignKey: 'Nickname',
-      });
+      // this.belongsTo(models.Users, {
+      //   targetKey: 'user_id',
+      //   foreignKey: 'User_id',
+      // });
+      // this.belongsTo(models.Users, {
+      //   targetKey: 'sitter_id',
+      //   foreignKey: 'Sitter_id',
+      // });
+      // this.belongsTo(models.Users, {
+      //   targetKey: 'nickname',
+      //   foreignKey: 'Nickname',
+      // });
     }
   }
   Reviews.init(
