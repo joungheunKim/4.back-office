@@ -23,10 +23,6 @@ module.exports = {
         type: Sequelize.STRING,
         unique: true,
       },
-      pet_name: {
-        allowNull: false,
-        type: Sequelize.STRING,
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

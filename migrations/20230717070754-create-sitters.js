@@ -12,7 +12,7 @@ module.exports = {
       login_id: {
         allowNull: false,
         type: Sequelize.STRING,
-        unique:true,
+        unique: true,
       },
       password: {
         allowNull: false,
