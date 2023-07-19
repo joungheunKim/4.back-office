@@ -13,8 +13,33 @@
       <div class="title"><a href="/">HI PETS</a></div>
     </header>
     <main>
+      <div class="modal">
+        <div class="modal-body">
+          <button class="quit-btn">X</button>
+          <br />
+          <p>
+            <label for="">ID: </label
+            ><input
+              type="text"
+              placeholder="아이디를 입력해주세요."
+              onfocus="this.placeholder = ''"
+              onblur="this.placeholder = '아이디를 입력해주세요.'"
+            />
+          </p>
+          <br />
+          <p>
+            <label for="">PASSWORD: </label
+            ><input
+              type="text"
+              placeholder="비밀번호를 입력해주세요."
+              onfocus="this.placeholder = ''"
+              onblur="this.placeholder = '비밀번호를 입력해주세요.'"
+            />
+          </p>
+        </div>
+      </div>
       <div class="btn-box">
-        <button class="signup-btn">회원가입</button>
+        <a href="html/signup.html">회원가입</a>
         <button class="login-btn">로그인</button>
       </div>
       <div class="menu-box">
