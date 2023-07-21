@@ -37,3 +37,12 @@ if (btnSignup !== null) {
     }
   });
 }
+
+// 로그인
+const btnLogin = document.querySelector('#btn-login');
+if (btnLogin !== null) {
+  btnLogin.addEventListener('click', () => {
+    console.log(btnLogin);
+    console.log('btnLogin!');
+  });
+}
