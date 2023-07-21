@@ -59,6 +59,12 @@ button:hover {
   height: 30px;
 }
 
+.card-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px 5%;
+}
+
 footer {
   height: 50px;
   display: flex;
