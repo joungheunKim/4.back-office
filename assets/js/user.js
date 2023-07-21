@@ -25,6 +25,7 @@ if (btnSignup !== null) {
       });
 
       const data = await response.json();
+
       if (response.ok) {
         alert('회원 가입에 성공하였습니다.');
         window.location.href = '/';
@@ -41,8 +42,41 @@ if (btnSignup !== null) {
 // 로그인
 const btnLogin = document.querySelector('#btn-login');
 if (btnLogin !== null) {
-  btnLogin.addEventListener('click', () => {
-    console.log(btnLogin);
-    console.log('btnLogin!');
+  btnLogin.addEventListener('click', async () => {
+    const login_id = document.querySelector('#input-login-id').value;
+    const password = document.querySelector('#input-login-password').value;
+
+    try {
+      const response = await fetch('/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          login_id: login_id,
+          password: password,
+        }),
+      });
+
+      const token = await response.json();
+      if (response.ok) {
+        console.log(token.user_id);
+        alert('로그인에 성공하였습니다.');
+        window.location.href = '/';
+      } else {
+        alert(data.message);
+      }
+    } catch (error) {
+      alert('로그인에 실패했습니다.');
+      console.error('2', error);
+    }
   });
+}
+
+// 로그인 확인 텍스트
+if (document.cookie.includes('Authorization')) {
+  const loginId = document.cookie;
+  console.log(loginId);
+  const btnBox = document.querySelector('#btn-box');
+  const loginIdText = document.createElement('p');
+  loginIdText.innerHTML = loginId;
+  btnBox.appendChild(loginIdText);
 }
