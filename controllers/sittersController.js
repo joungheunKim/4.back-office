@@ -7,7 +7,7 @@ class SittersController {
     try {
         const { login_id, nickname, password, confirmPassword, career, category } = req.body
         const { code, message } = await this.sittersService.signup( login_id, nickname, password, confirmPassword, career, category );        
-        return res.status(code).json(message);
+        return res.status(code).json({message});
     } catch (err) {
       if (err.code) return res.status(err.code).json({ message: err.message });
       console.error(err);

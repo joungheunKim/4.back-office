@@ -19,6 +19,7 @@
         <p>
           <label for="">ID: </label
           ><input
+            id="login_id"
             type="text"
             placeholder="아이디를 입력해주세요."
             onfocus="this.placeholder = ''"
@@ -28,6 +29,7 @@
         <p>
           <label for="">닉네임: </label
           ><input
+            id="nickname"
             type="text"
             placeholder="닉네임을 입력해주세요."
             onfocus="this.placeholder = ''"
@@ -37,6 +39,7 @@
         <p>
           <label for="">비밀번호: </label
           ><input
+            id="password"
             type="text"
             placeholder="비밀번호를 입력해주세요."
             onfocus="this.placeholder = ''"
@@ -46,6 +49,7 @@
         <p>
           <label for="">비밀번호 확인: </label
           ><input
+          id="confirmPassword"
             type="text"
             placeholder="비밀번호를 입력해주세요."
             onfocus="this.placeholder = ''"
@@ -55,6 +59,7 @@
         <p>
           <label for="">커리어: </label
           ><input
+            id="career"
             type="text"
             placeholder="커리어를 입력해주세요."
             onfocus="this.placeholder = ''"
@@ -64,15 +69,17 @@
         <p>
           <label for="">카테고리: </label
           ><input
+            id="category"
             type="text"
             placeholder="카테고리를 입력해주세요."
             onfocus="this.placeholder = ''"
             onblur="this.placeholder = '카테고리를 입력해주세요.'"
           />
         </p>
-        <button style="margin: 0 auto">가입하기</button>
+        <button style="margin: 0 auto" id ="signupSubmit">가입하기</button>
       </div>
     </main>
     <footer></footer>
   </body>
+  <script src="../js/sitter.js" defer></script>
 </html>

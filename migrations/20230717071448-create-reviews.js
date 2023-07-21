@@ -30,10 +30,6 @@ module.exports = {
       Nickname: {
         allowNull: false,
         type: Sequelize.STRING,
-        references: {
-          model: 'Nickname',
-          key: 'nickname',
-        },
       },
       rate: {
         type: Sequelize.INTEGER,
