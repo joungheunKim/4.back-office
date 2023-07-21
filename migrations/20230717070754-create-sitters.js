@@ -21,6 +21,7 @@ module.exports = {
       nickname: {
         allowNull: false,
         type: Sequelize.STRING,
+        unique: true,
       },
       career: {
         allowNull: false,
