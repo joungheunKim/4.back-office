@@ -18,7 +18,8 @@ a {
 }
 
 button,
-.btn-box a {
+.btn-box a,
+.signup-modal-body a {
   background-color: rgb(255, 255, 255);
   height: 40px;
 
@@ -41,6 +42,21 @@ button,
 button:hover {
   background-color: rgb(238, 238, 238);
   cursor: pointer;
+}
+
+.input-page {
+  padding: 50px;
+  text-align: center;
+}
+
+.input-page p {
+  height: 40px;
+  font-size: 20px;
+}
+
+.input-page input {
+  width: 200px;
+  height: 30px;
 }
 
 footer {

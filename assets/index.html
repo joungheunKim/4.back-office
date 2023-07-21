@@ -7,16 +7,29 @@
     <link rel="stylesheet" href="/css/common.css" />
     <link rel="stylesheet" href="/css/index.css" />
     <script src="/js/common.js" defer></script>
+    <script src="/js/index.js" defer></script>
   </head>
   <body>
     <header>
       <div class="title"><a href="/">HI PETS</a></div>
     </header>
     <main>
-      <div class="modal">
-        <div class="modal-body">
-          <button class="quit-btn">X</button>
-          <br />
+      <div class="signup-modal">
+        <div class="signup-modal-body">
+          <button class="signup-quit-btn">X</button>
+          <p>회원가입</p>
+          <p>
+            <a href="html/signup.html">사용자</a>
+          </p>
+          <p>
+            <a href="html/sitter-signup.html">시터</a>
+          </p>
+        </div>
+      </div>
+      <div class="login-modal">
+        <div class="login-modal-body">
+          <button class="login-quit-btn">X</button>
+          <p>로그인</p>
           <p>
             <label for="">ID: </label
             ><input
@@ -26,9 +39,8 @@
               onblur="this.placeholder = '아이디를 입력해주세요.'"
             />
           </p>
-          <br />
           <p>
-            <label for="">PASSWORD: </label
+            <label for="">비밀번호: </label
             ><input
               type="text"
               placeholder="비밀번호를 입력해주세요."
@@ -39,7 +51,7 @@
         </div>
       </div>
       <div class="btn-box">
-        <a href="html/signup.html">회원가입</a>
+        <button class="signup-btn">회원가입</button>
         <button class="login-btn">로그인</button>
       </div>
       <div class="menu-box">

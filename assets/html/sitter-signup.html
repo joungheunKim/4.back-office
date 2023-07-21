@@ -1,4 +1,4 @@
-<!-- 회원가입 -->
+<!-- 시터 회원가입 -->
 <!doctype html>
 <html lang="en">
   <head>
@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="../css/common.css" />
     <link rel="stylesheet" href="../css/index.css" />
     <script src="../js/common.js" defer></script>
-    <script src="/js/user.js" defer></script>
   </head>
   <body>
     <header>
@@ -16,11 +15,10 @@
     </header>
     <main>
       <div class="input-page">
-        <h1 style="margin: 0 auto">회원가입</h1>
+        <h1 style="margin: 0 auto">시터 회원가입</h1>
         <p>
           <label for="">ID: </label
           ><input
-            id="input-signup-id"
             type="text"
             placeholder="아이디를 입력해주세요."
             onfocus="this.placeholder = ''"
@@ -30,7 +28,6 @@
         <p>
           <label for="">닉네임: </label
           ><input
-            id="input-signup-nickname"
             type="text"
             placeholder="닉네임을 입력해주세요."
             onfocus="this.placeholder = ''"
@@ -40,7 +37,6 @@
         <p>
           <label for="">비밀번호: </label
           ><input
-            id="input-signup-password"
             type="text"
             placeholder="비밀번호를 입력해주세요."
             onfocus="this.placeholder = ''"
@@ -50,7 +46,6 @@
         <p>
           <label for="">비밀번호 확인: </label
           ><input
-            id="input-signup-confirm"
             type="text"
             placeholder="비밀번호를 입력해주세요."
             onfocus="this.placeholder = ''"
@@ -58,16 +53,24 @@
           />
         </p>
         <p>
-          <label for="">펫 이름: </label
+          <label for="">커리어: </label
           ><input
-            id="input-signup-petname"
             type="text"
-            placeholder="애완동물 이름을 입력해주세요."
+            placeholder="커리어를 입력해주세요."
             onfocus="this.placeholder = ''"
-            onblur="this.placeholder = '애완동물 이름을 입력해주세요.'"
+            onblur="this.placeholder = '커리어를 입력해주세요.'"
           />
         </p>
-        <button id="btn-signup" style="margin: 0 auto">가입하기</button>
+        <p>
+          <label for="">카테고리: </label
+          ><input
+            type="text"
+            placeholder="카테고리를 입력해주세요."
+            onfocus="this.placeholder = ''"
+            onblur="this.placeholder = '카테고리를 입력해주세요.'"
+          />
+        </p>
+        <button style="margin: 0 auto">가입하기</button>
       </div>
     </main>
     <footer></footer>
