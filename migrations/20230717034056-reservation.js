@@ -27,7 +27,7 @@ module.exports = {
         },
         onDelete: 'CASCADE',
       },
-      date: {
+      date: { // 범위
         allowNull: false,
         type: Sequelize.STRING,
       },
