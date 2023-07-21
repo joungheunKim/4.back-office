@@ -6,6 +6,7 @@ class UsersController {
   signupUser = async (req, res) => {
     try {
       const { login_id, nickname, password, confirm, pet_name } = req.body;
+      console.log('req.body', req.body);
       const { code, message } = await this.usersService.signup(
         login_id,
         nickname,

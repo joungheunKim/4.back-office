@@ -1,0 +1,66 @@
+/* 공통 css */
+header {
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+main {
+  min-height: 100vh;
+}
+
+a {
+  background-color: white;
+  color: black;
+  text-decoration: none;
+}
+
+button,
+.btn-box a,
+.signup-modal-body a {
+  background-color: rgb(255, 255, 255);
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 20px;
+  margin: 0 30px 0 0;
+
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  font-size: 15px;
+  font-weight: 500;
+
+  white-space: nowrap;
+}
+
+button:hover {
+  background-color: rgb(238, 238, 238);
+  cursor: pointer;
+}
+
+.input-page {
+  padding: 50px;
+  text-align: center;
+}
+
+.input-page p {
+  height: 40px;
+  font-size: 20px;
+}
+
+.input-page input {
+  width: 200px;
+  height: 30px;
+}
+
+footer {
+  height: 50px;
+  display: flex;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
