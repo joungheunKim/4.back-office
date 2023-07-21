@@ -11,7 +11,7 @@ class UsersService {
   signup = async (login_id, nickname, password, confirm, pet_name) => {
     const login_idRegex = /^[a-zA-Z0-9]{6,}$/;
     if (!login_idRegex.test(login_id))
-      throw { code: 412, message: 'ID의 형식이 일치하지 않습니다.' };
+      throw { code: 412, message: 'ID 형식이 일치하지 않습니다.' };
 
     const nicknameRegex = /^[a-zA-Z0-9]{3,}$/;
     if (!nicknameRegex.test(nickname))
