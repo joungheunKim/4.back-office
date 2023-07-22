@@ -56,9 +56,8 @@ if (btnLogin !== null) {
         }),
       });
 
-      const token = await response.json();
+      const data = await response.json();
       if (response.ok) {
-        console.log(token.user_id);
         alert('로그인에 성공하였습니다.');
         window.location.href = '/';
       } else {
@@ -66,17 +65,33 @@ if (btnLogin !== null) {
       }
     } catch (error) {
       alert('로그인에 실패했습니다.');
-      console.error('2', error);
+      console.error(error);
     }
   });
 }
 
 // 로그인 확인 텍스트
 if (document.cookie.includes('Authorization')) {
-  const loginId = document.cookie;
-  console.log(loginId);
-  const btnBox = document.querySelector('#btn-box');
-  const loginIdText = document.createElement('p');
-  loginIdText.innerHTML = loginId;
-  btnBox.appendChild(loginIdText);
+  const renderLoginId = async () => {
+    const response = await fetch('/api/findUser', {
+      method: 'GET',
+    });
+
+    try {
+      const login_id = await response.json();
+      if (response.ok) {
+        console.log('로그인 아이디:', login_id);
+      } else {
+        console.log('로그인 아이디를 불러오지 못했습니다.');
+      }
+      const btnBox = document.querySelector('#btn-box');
+      const loginIdText = document.createElement('p');
+      loginIdText.innerHTML = '로그인 아이디: ' + login_id;
+      btnBox.appendChild(loginIdText);
+      return;
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  renderLoginId();
 }
