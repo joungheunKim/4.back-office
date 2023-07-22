@@ -27,9 +27,23 @@ module.exports = {
         },
         onDelete: 'CASCADE',
       },
-      Nickname: {
+      User_nickname: {
         allowNull: false,
         type: Sequelize.STRING,
+        references: {
+          model: 'Users',
+          key: 'nickname',
+        },
+        onDelete: 'CASCADE',
+      },
+      Sitter_nickname: {
+        allowNull: false,
+        type: Sequelize.STRING,
+        references: {
+          model: 'Sitters',
+          key: 'nickname',
+        },
+        onDelete: 'CASCADE',
       },
       rate: {
         type: Sequelize.INTEGER,
