@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/css/index.css" />
     <script src="/js/common.js" defer></script>
     <script src="/js/index.js" defer></script>
+    <script src="/js/user.js" defer></script>
   </head>
   <body>
     <header>
@@ -33,6 +34,7 @@
           <p>
             <label for="">ID: </label
             ><input
+              id="input-login-id"
               type="text"
               placeholder="아이디를 입력해주세요."
               onfocus="this.placeholder = ''"
@@ -42,15 +44,17 @@
           <p>
             <label for="">비밀번호: </label
             ><input
+              id="input-login-password"
               type="text"
               placeholder="비밀번호를 입력해주세요."
               onfocus="this.placeholder = ''"
               onblur="this.placeholder = '비밀번호를 입력해주세요.'"
             />
           </p>
+          <button id="btn-login" style="margin-left: auto">로그인</button>
         </div>
       </div>
-      <div class="btn-box">
+      <div id="btn-box" class="btn-box">
         <button class="signup-btn">회원가입</button>
         <button class="login-btn">로그인</button>
       </div>

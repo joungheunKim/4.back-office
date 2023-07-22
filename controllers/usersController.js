@@ -29,7 +29,7 @@ class UsersController {
         login_id,
         password
       );
-      res.cookie('Authorization', `Bearer ${token}`, { httpOnly: true });
+      res.cookie('Authorization', `Bearer ${token}`);
       return res.status(code).json(message);
     } catch (error) {
       console.error(error);
@@ -69,6 +69,20 @@ class UsersController {
       if (error.code)
         return res.status(error.code).json({ message: error.message });
       res.status(500).send({ message: '잘못된 요청입니다.' });
+    }
+  };
+
+  doFindLogin = async (req, res) => {
+    try {
+      const { Authorization } = req.cookies;
+      const { user_id } = res.locals.user;
+      const { login_id } = await this.usersService.findUser(
+        Authorization,
+        user_id
+      );
+      return res.json(login_id);
+    } catch (error) {
+      res.status(error).json({ message: error.message });
     }
   };
 }

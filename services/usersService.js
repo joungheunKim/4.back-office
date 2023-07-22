@@ -64,7 +64,7 @@ class UsersService {
       expiresIn: '2h',
     });
 
-    return { code: 200, message: '로그인에 성공하였습니다.', token };
+    return { code: 200, message: '로그인에 성공하였습니다.', token: token };
   };
 
   // 로그아웃
@@ -88,6 +88,17 @@ class UsersService {
     await this.usersRepository.deleteUser(user_id);
 
     return { code: 200, message: '회원 탈퇴에 성공하였습니다.' };
+  };
+
+  // 로그인 유저 찾기
+  findUser = async (Authorization, user_id) => {
+    if (!Authorization)
+      throw { code: 401, message: '로그인 되어있지 않습니다.' };
+
+    const user = await this.usersRepository.findUserByPk(user_id);
+    const login_id = user.login_id;
+
+    return { login_id };
   };
 }
 
