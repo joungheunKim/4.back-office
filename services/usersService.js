@@ -60,7 +60,7 @@ class UsersService {
     if (!user || user.password !== password)
       throw { code: 412, message: '닉네임 또는 패스워드를 확인해주세요.' };
 
-    const token = jwt.sign({ user_id: user.user_id }, env.JWT_SECRET_KET, {
+    const token = jwt.sign({ user_id: user.user_id }, env.JWT_SECRET_KEY, {
       expiresIn: '2h',
     });
 
