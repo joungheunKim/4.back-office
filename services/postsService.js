@@ -9,7 +9,7 @@ class PostsService {
     try {
       await this.postsRepository.createPost(userId, title, content);
     } catch (error) {
-      throw new Error(error);
+      throw new Error('모집글 작성에 실패했습니다.');
     }
   };
 

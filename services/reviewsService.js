@@ -13,24 +13,12 @@ class ReviewsService {
 
     if (!sitter) throw { code: 411, message: '조건에 맞는 시터가 없습니다.' };
 
-    await this.reviewsRepository.findById({
-      where: { sitter_id },
-      attributes: [
-        'review_id',
-        'sitter_id',
-        'user_nickname',
-        'sitter_nickname',
-        'content',
-        'rate',
-        'createdAt',
-      ],
-      order: [['createdAt', 'DESC']],
-    });
+    async () => await this.reviewsRepository.get();
     return { code: 201, message: '리뷰 검색에 성공하였습니다.' };
   };
 
   post = async (
-    user_nickname,
+    nickname,
     sitter_nickname,
     user_id,
     sitter_id,
@@ -38,28 +26,25 @@ class ReviewsService {
     rate,
     review_id
   ) => {
-    const sitter = await this.reviewsRepository.findById([
-      { sitter_id: sitter_id },
-    ]);
+    // if (!sitter) throw { code: 411, message: '조건에 맞는 시터가 없습니다.' };
 
-    if (!sitter) throw { code: 411, message: '조건에 맞는 시터가 없습니다.' };
+    // const rateRegex = /^[1-5]$/g;
+    // if (!rateRegex.test(rate))
+    //   throw {
+    //     code: 412,
+    //     errorMessage: '평점은 1점에서 5점까지 부여할 수 있습니다.',
+    //   };
 
-    const rateRegex = /^[1-5]$/g;
-    if (!rateRegex.test(rate))
-      throw {
-        code: 412,
-        errorMessage: '평점은 1점에서 5점까지 부여할 수 있습니다.',
-      };
-
-    await this.reviewsRepository.create({
-      User_nickname: user_nickname,
-      Sitter_nickname: sitter_nickname,
-      User_id: user_id,
-      Sitter_id: sitter_id,
+    await this.reviewsRepository.post(
+      nickname,
+      sitter_nickname,
+      user_id,
+      sitter_id,
       content,
       rate,
-      review_id,
-    });
+      review_id
+    );
+
     return { code: 201, message: '리뷰를 생성하였습니다.' };
   };
 
