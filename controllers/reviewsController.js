@@ -44,7 +44,8 @@ class ReviewsController {
         content
       );
       return res.status(code).json(message);
-    } catch {
+    } catch (error) {
+      console.error(error);
       res
         .status(400)
         .send({ errormessage: '요청한 데이터 형식이 올바르지 않습니다.' });
