@@ -17,15 +17,7 @@ class ReviewsService {
     return { code: 201, message: '리뷰 검색에 성공하였습니다.' };
   };
 
-  post = async (
-    nickname,
-    sitter_nickname,
-    user_id,
-    sitter_id,
-    content,
-    rate,
-    review_id
-  ) => {
+  post = async (review_id, user_id, sitter_id, nickname, comment, rate) => {
     // if (!sitter) throw { code: 411, message: '조건에 맞는 시터가 없습니다.' };
 
     // const rateRegex = /^[1-5]$/g;
@@ -36,13 +28,12 @@ class ReviewsService {
     //   };
 
     await this.reviewsRepository.post(
-      nickname,
-      sitter_nickname,
+      review_id,
       user_id,
       sitter_id,
-      content,
-      rate,
-      review_id
+      nickname,
+      comment,
+      rate
     );
 
     return { code: 201, message: '리뷰를 생성하였습니다.' };

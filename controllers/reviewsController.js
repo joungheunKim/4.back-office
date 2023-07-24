@@ -36,13 +36,13 @@ class ReviewsController {
     try {
       const { user_id } = res.locals.user;
       const { sitter_id } = req.params;
-      const { content, rate, nickname } = req.body;
+      const { comment, rate, nickname } = req.body;
       const { code, message } = await this.reviewsService.post(
         user_id,
         sitter_id,
-        rate,
-        content,
-        nickname
+        nickname,
+        comment,
+        rate
       );
       return res.status(code).json(message);
     } catch (error) {

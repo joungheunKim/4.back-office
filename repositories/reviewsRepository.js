@@ -15,14 +15,14 @@ class ReviewsRepository {
     });
   };
 
-  post = async (nickname, user_id, sitter_id, content, rate, review_id) => {
+  post = async (review_id, user_id, sitter_id, nickname, comment, rate) => {
     return await Reviews.create({
-      Nickname: nickname,
-      User_id: user_id,
-      Sitter_id: sitter_id,
-      content,
-      rate,
       review_id,
+      user_id,
+      sitter_id,
+      nickname,
+      comment,
+      rate,
     });
   };
 
