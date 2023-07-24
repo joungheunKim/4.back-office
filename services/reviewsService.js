@@ -15,29 +15,12 @@ class ReviewsService {
 
     await this.reviewsRepository.findById({
       where: { sitter_id },
-      attributes: [
-        'review_id',
-        'sitter_id',
-        'user_nickname',
-        'sitter_nickname',
-        'content',
-        'rate',
-        'createdAt',
-      ],
       order: [['createdAt', 'DESC']],
     });
     return { code: 201, message: '리뷰 검색에 성공하였습니다.' };
   };
 
-  post = async (
-    user_nickname,
-    sitter_nickname,
-    user_id,
-    sitter_id,
-    content,
-    rate,
-    review_id
-  ) => {
+  post = async (user_id, sitter_id, content, rate) => {
     const sitter = await this.reviewsRepository.findById([
       { sitter_id: sitter_id },
     ]);

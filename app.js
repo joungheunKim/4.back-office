@@ -1,9 +1,9 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const usersRouter = require('./routes/users.route');
-const sitterRouter = require('./routes/sitters.routes')
+const sitterRouter = require('./routes/sitters.routes');
 const app = express();
-const PORT = 3000;
+const PORT = 3001;
 const dotenv = require('dotenv');
 dotenv.config();
 
