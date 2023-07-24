@@ -41,8 +41,9 @@ class ReviewsService {
       Sitter_id: sitter_id,
       content,
       rate,
-      review_id,
-    });
+      review_id
+    );
+
     return { code: 201, message: '리뷰를 생성하였습니다.' };
   };
 

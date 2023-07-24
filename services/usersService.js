@@ -60,11 +60,12 @@ class UsersService {
     if (!user || user.password !== password)
       throw { code: 412, message: '닉네임 또는 패스워드를 확인해주세요.' };
 
+
     const token = jwt.sign({ user_id: user.user_id }, env.DB_SECRETKEY, {
       expiresIn: '2h',
     });
 
-    return { code: 200, message: '로그인에 성공하였습니다.', token };
+    return { code: 200, message: '로그인에 성공하였습니다.', token: token };
   };
 
   // 로그아웃
@@ -88,6 +89,17 @@ class UsersService {
     await this.usersRepository.deleteUser(user_id);
 
     return { code: 200, message: '회원 탈퇴에 성공하였습니다.' };
+  };
+
+  // 로그인 유저 찾기
+  findUser = async (Authorization, user_id) => {
+    if (!Authorization)
+      throw { code: 401, message: '로그인 되어있지 않습니다.' };
+
+    const user = await this.usersRepository.findUserByPk(user_id);
+    const login_id = user.login_id;
+
+    return { login_id };
   };
 }
 

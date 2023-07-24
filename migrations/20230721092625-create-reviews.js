@@ -9,48 +9,33 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      User_id: {
-        allowNull: false,
+      user_id: {
         type: Sequelize.INTEGER,
+        allowNull: false,
         references: {
           model: 'Users',
           key: 'user_id',
         },
         onDelete: 'CASCADE',
       },
-      Sitter_id: {
-        allowNull: false,
+      sitter_id: {
         type: Sequelize.INTEGER,
-        references: {
-          model: 'Sitters',
-          key: 'sitter_id',
-        },
-        onDelete: 'CASCADE',
-      },
-      User_nickname: {
         allowNull: false,
-        type: Sequelize.STRING,
         references: {
           model: 'Users',
-          key: 'nickname',
+          key: 'user_id',
         },
         onDelete: 'CASCADE',
       },
-      Sitter_nickname: {
-        allowNull: false,
+      nickname: {
         type: Sequelize.STRING,
-        references: {
-          model: 'Sitters',
-          key: 'nickname',
-        },
-        onDelete: 'CASCADE',
+        allowNull: false,
+      },
+      comment: {
+        type: Sequelize.STRING,
       },
       rate: {
         type: Sequelize.INTEGER,
-      },
-      content: {
-        allowNull: false,
-        type: Sequelize.STRING,
       },
       createdAt: {
         allowNull: false,

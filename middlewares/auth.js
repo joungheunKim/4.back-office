@@ -20,7 +20,7 @@ module.exports = async (req, res, next) => {
         .json({ message: '토큰 타입이 일치하지 않습니다.' });
     }
 
-    const decodedToken = jwt.verify(token, env.JWT_SECRET_KET);
+    const decodedToken = jwt.verify(token, env.JWT_SECRET_KEY);
     const user_id = decodedToken.user_id;
     const user = await Users.findOne({ where: { user_id } });
     // const sitter = await Sitters.findOne({ where: { sitter_id } });
