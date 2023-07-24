@@ -4,8 +4,9 @@ const usersRouter = require('./routes/users.route');
 const sitterRouter = require('./routes/sitters.routes');
 const postsRouter = require('./routes/posts');
 const reviewRouter = require('./routes/reviews');
+
 const app = express();
-const PORT = 3000;
+const PORT = 3001;
 const dotenv = require('dotenv');
 dotenv.config();
 
